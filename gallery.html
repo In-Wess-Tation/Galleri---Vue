@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/gallery.css">
     <title>Gallery - Vue</title>
         <!-- Import Vue.js -->
@@ -11,12 +10,12 @@
 
 </head>
 <body>
-        <header>
+    <header>
         <nav class="headerNav">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="insert.html">Insert Into Gallery</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <a href="index.html">Home</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="insert.html">Insert Into Gallery</a>
+            <a href="contact.html">Contact</a>
         </nav>
     </header>
 
@@ -25,28 +24,79 @@
     <main id="app">
         <h1>Gallery</h1>
 
-        <button @click="showOcArt">Toggle OC Art</button>
-        <ul v-if="showOcArt">
-            <li v-for="ocArt in ocArt" :key="ocArt">
-                {{ ocArt }}
-            </li>
-        </ul>
 
-
-
-    <button @click="showOc">Toggle OC Art</button>
-
-
-
-      <article >
-        <div v-if="showOcArt == true" v-show="showOcArt">
-            <h2>OC Art</h2>
-            <div v-for="ocArt in ocArt" :key="ocArt">
-                {{ ocArt }}
+        <article>
+            <button @click="showOc">Toggle OC Art</button>
+            <button @click="showFan">Toggle Fan Art</button>
+            <div>
+                <button @click="showMlp">Toggle MLP Art</button>
+                <button @click="showMlpTS">Toggle Twilight Sparkle Art</button>
+                <button @click="showMlpP">Toggle MLP Princesses Art</button>
             </div>
-        </div>
-        <div v-else="showLastName == false">Last Name is hidden</div>
-      </article>
+            <button @click="showPride">Toggle Pride Art</button>
+        </article>
+
+
+        <section class="gallerySection">
+            <article class="galleryArticle" >
+                <div v-if="showOcArt == true" v-show="showOcArt">
+                    <h2>OC Artworks</h2>
+                    <div class="art" v-for="ocArt in ocArt" :key="ocArt">
+                        {{ ocArt }}
+                    </div>
+                </div>
+            </article>
+
+            <article>
+
+                <article class="galleryArticle">
+                    <div v-if="showMlpArt == true" v-show="showMlpArt">
+                        <h2>MLP Artworks</h2>
+                        <div class="art" v-for="mlpArt in mlpArt" :key="mlpArt">
+                            {{ mlpArt }}
+                        </div>
+                    </div>
+                </article>
+
+                <article class="galleryArticle">
+                    <div v-if="showTwilightSparkle == true" v-show="showTwilightSparkle">
+                        <h2>Twilight Sparkle Artworks</h2>
+                        <div class="art" v-for="twilightSparkle in twilightSparkle" :key="twilightSparkle">
+                            {{ twilightSparkle }}
+                        </div>
+                    </div>
+                </article>
+
+                <article class="galleryArticle">
+                    <div v-if="showMlpPrincesses == true" v-show="showMlpPrincesses">
+                        <h2>MLP Princesses Artworks</h2>
+                        <div class="art" v-for="mlpPrincess in mlpPrincesses" :key="mlpPrincess">
+                            {{ mlpPrincess }}
+                        </div>
+                    </div>
+                </article>
+
+            </article>
+ 
+
+            <article class="galleryArticle">
+                <div v-if="showFanArt == true" v-show="showFanArt">
+                    <h2>Fan Artworks</h2>
+                    <div class="art" v-for="fanArt in fanArt" :key="fanArt">
+                        {{ fanArt }}
+                    </div>
+                </div>
+            </article>
+
+            <article class="galleryArticle">
+                <div v-if="showPrideArt == true" v-show="showPrideArt">
+                    <h2>Pride Artworks</h2>
+                    <div class="art" v-for="prideArt in prideGallery" :key="prideArt">
+                        {{ prideArt }}
+                    </div>
+                </div>
+            </article>
+        </section>
 
 
 

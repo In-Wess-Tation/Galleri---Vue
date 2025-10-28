@@ -1,0 +1,13 @@
+.gallerySection {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.art {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 1rem;
+    width: 20rem;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}

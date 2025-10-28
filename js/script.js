@@ -6,19 +6,38 @@ const app = Vue.createApp({
                'OC Art 2',
                'OC Art 3'
             ],
-            showOcArt: true,
+            showOcArt: false,
             fanArt: [
                'Fan Art 1',
                'Fan Art 2',
                'Fan Art 3'
             ],
-            showFanArt: true,
+            showFanArt: false,
             mlpArt: [
                'MLP Art 1',
                'MLP Art 2',
                'MLP Art 3'
             ],
-            showMlpArt: true,
+            showMlpArt: false,
+            twilightSparkle: [
+                'Twilight Sparkle Art 1',
+                'Twilight Sparkle Art 2',
+                'Twilight Sparkle Art 3'
+            ],
+            showTwilightSparkle: false,
+            mlpPrincesses: [
+                'PrincessCelestia',
+                'PrincessLuna',
+                'PrincessCadance',
+                'PrincessTwilight'
+            ],
+            showMlpPrincesses: false,
+            prideGallery: [
+                'Pride Art 1',
+                'Pride Art 2',
+                'Pride Art 3'
+            ],
+            showPrideArt: false
         }
     },
     methods: {
@@ -33,6 +52,15 @@ const app = Vue.createApp({
         },
         showMlp(){
             this.showMlpArt = !this.showMlpArt
+        },
+        showMlpTS(){
+            this.showTwilightSparkle = !this.showTwilightSparkle
+        },
+        showMlpP(){
+            this.showMlpPrincesses = !this.showMlpPrincesses
+        },
+        showPride(){
+            this.showPrideArt = !this.showPrideArt
         }
 
     },
