@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/gallery.css">
+    <link rel="stylesheet" href="css/gallery.css">
     <title>Gallery - Vue</title>
-        <!-- Import Vue.js -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
+    <!-- Import Vue FIRST -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
 </head>
 <body>
     <header>
@@ -37,12 +36,14 @@
         </article>
 
 
-        <section class="gallerySection">
+                <section class="gallerySection">
             <article class="galleryArticle" >
-                <div v-if="showOcArt == true" v-show="showOcArt">
+                <div v-if="showOcArt">
                     <h2>OC Artworks</h2>
-                    <div class="art" v-for="ocArt in ocArt" :key="ocArt">
-                        {{ ocArt }}
+                    <div class="art" v-for="(item, i) in ocArt" :key="item.url || i">
+                        <img v-if="(item && (item.url || item))" :src="item.url || item" alt="artwork" />
+                        <div v-else>{{ item }}</div>
+                        <button class="DeleteBtn" @click="deleteArt('ocArt', i)">Delete</button>
                     </div>
                 </div>
             </article>
@@ -50,28 +51,34 @@
             <article>
 
                 <article class="galleryArticle">
-                    <div v-if="showMlpArt == true" v-show="showMlpArt">
+                    <div v-if="showMlpArt">
                         <h2>MLP Artworks</h2>
-                        <div class="art" v-for="mlpArt in mlpArt" :key="mlpArt">
-                            {{ mlpArt }}
+                        <div class="art" v-for="(item, i) in mlpArt" :key="item.url || i">
+                            <img v-if="(item && (item.url || item))" :src="item.url || item" alt="artwork" />
+                            <div v-else>{{ item }}</div>
+                           <button class="DeleteBtn" @click="deleteArt('mlpArt', i)">Delete</button>
                         </div>
                     </div>
                 </article>
 
                 <article class="galleryArticle">
-                    <div v-if="showTwilightSparkle == true" v-show="showTwilightSparkle">
+                    <div v-if="showTwilightSparkle">
                         <h2>Twilight Sparkle Artworks</h2>
-                        <div class="art" v-for="twilightSparkle in twilightSparkle" :key="twilightSparkle">
-                            {{ twilightSparkle }}
+                        <div class="art" v-for="(item, i) in twilightSparkle" :key="item.url || i">
+                            <img v-if="(item && (item.url || item))" :src="item.url || item" alt="artwork" />
+                            <div v-else>{{ item }}</div>
+                           <button class="DeleteBtn" @click="deleteArt('twilightSparkle', i)">Delete</button>
                         </div>
                     </div>
                 </article>
 
                 <article class="galleryArticle">
-                    <div v-if="showMlpPrincesses == true" v-show="showMlpPrincesses">
+                    <div v-if="showMlpPrincesses">
                         <h2>MLP Princesses Artworks</h2>
-                        <div class="art" v-for="mlpPrincess in mlpPrincesses" :key="mlpPrincess">
-                            {{ mlpPrincess }}
+                        <div class="art" v-for="(item, i) in mlpPrincesses" :key="item.url || i">
+                            <img v-if="(item && (item.url || item))" :src="item.url || item" alt="artwork" />
+                            <div v-else>{{ item }}</div>
+                           <button class="DeleteBtn" @click="deleteArt('mlpPrincesses', i)">Delete</button>
                         </div>
                     </div>
                 </article>
@@ -80,19 +87,23 @@
  
 
             <article class="galleryArticle">
-                <div v-if="showFanArt == true" v-show="showFanArt">
+                <div v-if="showFanArt">
                     <h2>Fan Artworks</h2>
-                    <div class="art" v-for="fanArt in fanArt" :key="fanArt">
-                        {{ fanArt }}
+                    <div class="art" v-for="(item, i) in fanArt" :key="item.url || i">
+                        <img v-if="(item && (item.url || item))" :src="item.url || item" alt="artwork" />
+                        <div v-else>{{ item }}</div>
+                           <button class="DeleteBtn" @click="deleteArt('fanArt', i)">Delete</button>
                     </div>
                 </div>
             </article>
 
             <article class="galleryArticle">
-                <div v-if="showPrideArt == true" v-show="showPrideArt">
+                <div v-if="showPrideArt">
                     <h2>Pride Artworks</h2>
-                    <div class="art" v-for="prideArt in prideGallery" :key="prideArt">
-                        {{ prideArt }}
+                    <div class="art" v-for="(item, i) in prideGallery" :key="item.url || i">
+                        <img v-if="(item && (item.url || item))" :src="item.url || item" alt="artwork" />
+                        <div v-else>{{ item }}</div>
+                           <button class="DeleteBtn" @click="deleteArt('prideGallery', i)">Delete</button>
                     </div>
                 </div>
             </article>
@@ -113,11 +124,11 @@
 
 
 
-    <script src="/js/script.js"></script>
-
+    <!-- Use correct script path and type -->
+    <script src="js/script.js"></script>
     <!-- Mount App -->
     <script>
-      const mountedApp = app.mount('#app')
+        const mountedApp = app.mount('#app');
     </script>
 </body>
 </html>

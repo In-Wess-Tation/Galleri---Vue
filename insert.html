@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/insert.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/insert.css">
+    <title>Insert into Gallery</title>
+    <!-- Import Vue FIRST -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
 </head>
 <body>
     <header>
@@ -16,20 +18,37 @@
         </nav>
     </header>
 
+    <main id="app">
+        <h1>Insert Into Gallery</h1>
+        <!-- changed code: use Vue submit handler and refs -->
+        <form id="insertForm" @submit.prevent="handleInsert">
+            <label for="artCategory">Select Art Category:</label>
+            <select id="artCategory" name="artCategory" ref="artCategory">
+                <option value="ocArt">OC Art</option>
+                <option value="fanArt">Fan Art</option>
+                <option value="mlpArt">MLP Art</option>
+                <option value="twilightSparkle">Twilight Sparkle</option>
+                <option value="mlpPrincesses">MLP Princesses</option>
+                <option value="prideGallery">Pride Art</option>
+            </select>
 
-    
-    <main>
+            <article id="artDetails">
+                <label for="artFile">Choose image to upload</label>
+                <input type="file" id="artFile" name="artFile" accept="image/*" required ref="artFile">
+            </article>
 
+            <button type="submit">Submit</button>
+        </form>
     </main>
 
-
-
     <footer>
-
     </footer>
 
-
-
-        <script src="/js/script.js"></script>
+    <!-- Use correct script path (match folder name) -->
+    <script type="text/javascript" src="Js/script.js"></script>
+    <!-- Mount App -->
+    <script>
+        const mountedApp = app.mount('#app');
+    </script>
 </body>
 </html>
